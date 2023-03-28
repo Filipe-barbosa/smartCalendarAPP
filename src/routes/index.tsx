@@ -1,14 +1,17 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Teste from '../components/teste';
+import { HomePage } from '../pages/Home';
 
-
-
-
-export const AppRoutes = ()=>{
-  return(
+export const AppRoutes = () => {
+  return (
     <Routes>
-      <Route path="/home" element={<Teste/>}/>
-      <Route path='*' element={<Navigate to= "/home"/>}/>
+      <Route
+        path="/home"
+        element={<HomePage />}
+      />
+      <Route
+        path="*"
+        element={<Navigate to="/home" />}
+      />
     </Routes>
   );
 };
