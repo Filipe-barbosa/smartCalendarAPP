@@ -20,6 +20,7 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "spaced-comment": "error",
+    "react/prop-types": 0,
     "no-undef": "off",
     "no-duplicate-imports": "error",
     "indent": ["error", 2],
