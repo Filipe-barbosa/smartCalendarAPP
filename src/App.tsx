@@ -3,6 +3,8 @@ import DataProvider from './context/DataProvider';
 import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes';
 
+function App() {
+  return (
     <DataProvider>
       <BrowserRouter>
         <AppRoutes />
