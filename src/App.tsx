@@ -1,5 +1,5 @@
 import React from 'react';
-import DataProvider from './context/DataProvider';
+import { DataProvider } from './context/DataProvider';
 import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes';
 

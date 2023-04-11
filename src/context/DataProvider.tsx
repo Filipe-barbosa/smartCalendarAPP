@@ -1,15 +1,23 @@
 import { DataContext } from './DataContext';
+import { useState } from 'react';
 
-interface props {
-  children: JSX.Element | JSX.Element[]
+interface DataContextProps {
+  data: Date;
+  setData: (date: Date) => void;
 }
 
-const DataProvider = ({ children }: props) => {
+
+export function DataProvider(props: { children: React.ReactNode }) {
+  const [data, setData] = useState(new Date());
+
+  const contextValue: DataContextProps = {
+    data,
+    setData,
+  };
+
   return (
-    <DataContext.Provider value={{}}>
-      {children}
+    <DataContext.Provider value={contextValue}>
+      {props.children}
     </DataContext.Provider>
   );
-};
-
-export default DataProvider;
+}
