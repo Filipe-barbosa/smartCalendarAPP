@@ -14,3 +14,24 @@ export const TextInput: React.FC<TextInputProps> = ({ title, placeholder }) => {
     </div>
   );
 };
+
+type TimeInputProps = {
+  title: string;
+};
+
+export const TimeInput: React.FC<TimeInputProps> = ({ title }) => {
+  return (
+    <div>
+      <label
+        htmlFor="consultation-time"
+        className="block text-gray-700 font-bold mb-2"
+      >
+        {title}
+      </label>
+      <input
+        type="time"
+        className="border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      />
+    </div>
+  );
+};
