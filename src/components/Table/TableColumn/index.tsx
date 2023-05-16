@@ -1,3 +1,5 @@
+import Translator from '../../Translator';
+
 type TitleProps = {
   label: string;
 };
@@ -8,7 +10,7 @@ export const TableColumn = ({ label }: TitleProps) => {
       scope="col"
       className="px-6 py-4"
     >
-      {label}
+      <Translator path={'scheduledTable.' + label} />
     </th>
   );
 };
