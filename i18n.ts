@@ -1,21 +1,14 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import translationPT from './locales/pt/translation.json';
+import translations from './locales';
 
-i18n
-  .use(initReactI18next)
-  .init({
-    resources: {
-      'pt-BR': {
-        translation: translationPT
-      }
-    },
-    fallbackLng: 'pt-BR',
-    debug: false,
-    interpolation: {
-      escapeValue: false
-    }
-  });
+const i18nConfig = {
+  resources: translations,
+  fallbackLng: 'pt-BR',
+  defaultNS: 'translations',
+};
+
+i18n.use(initReactI18next).init(i18nConfig);
 
 export default i18n;
