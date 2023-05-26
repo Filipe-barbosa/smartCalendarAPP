@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import ModalForm from './index';
+import ModalForm from '../Modal/index';
 
 const BtnModal: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

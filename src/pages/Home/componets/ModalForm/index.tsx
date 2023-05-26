@@ -1,5 +1,5 @@
-import { TextInput } from '../components/Inputs';
-import DateInput from '../components/DateInput';
+import { TextInput } from '../../../../components/Inputs';
+import DateInput from '../../../../components/DateInput';
 
 export const HomePage: React.FC = () => {
   return (
@@ -8,7 +8,7 @@ export const HomePage: React.FC = () => {
         title="Nome"
         placeholder="Informe o nome do paciente"
       />
-      <DateInput/>
+      <DateInput />
     </>
   );
 };
