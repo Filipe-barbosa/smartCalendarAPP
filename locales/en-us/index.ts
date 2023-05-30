@@ -1,7 +1,8 @@
 export default {
   translations: {
     home: {
-      message: 'Hello World!',
+      headerTitle: 'Exams',
+      headerSubTitle: 'See scheduled exams or make a new appointment.',
     },
     scheduledTable: {
       name: 'Name',
