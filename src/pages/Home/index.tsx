@@ -1,8 +1,12 @@
+import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { Table } from '../../components/Table';
+import { ModalForm } from './components/ModalForm';
+import { Modal } from '../../components/Modal';
 
 export const HomePage: React.FC = () => {
+  const [openModal, setOpenModal] = useState(false);
   const [teste, setTeste] = useLocalStorage('teste2', [
     {
       name: 'teste1',
@@ -20,8 +24,14 @@ export const HomePage: React.FC = () => {
 
   return (
     <>
-      <Header />
+      <Header openModal={() => setOpenModal(!openModal)} />
       <Table data={teste} />
+      {openModal && (
+        <Modal onClose={() => setOpenModal(false)}>
+          <ModalForm onClose={() => setOpenModal(false)} />
+        </Modal>
+      )
+      }
     </>
   );
 };

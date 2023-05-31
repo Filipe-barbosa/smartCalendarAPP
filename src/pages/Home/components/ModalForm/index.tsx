@@ -1,7 +1,13 @@
 import DateInput from '../../../../components/DateInput';
 import { TextInput } from '../../../../components/Inputs';
+import Button from '../../../../components/Buttons';
 
-export const ModalForm = () => {
+
+type ModalFormProps = {
+  onClose: () => void,
+}
+
+export const ModalForm: React.FC<ModalFormProps> = ({onClose}) => {
   return (
     <div className="container mx-auto px-16">
       <div className=" flex flex-col justify-center items-start	p-0 gap-2 isolate">
@@ -73,6 +79,9 @@ export const ModalForm = () => {
             />
           </div>
         </div>
+      </div>
+      <div className='flex justify-end'>
+        <Button click={onClose} title='Agendar'/>
       </div>
     </div>
   );

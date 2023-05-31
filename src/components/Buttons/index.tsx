@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+type ButtonProps = {
+  title: string;
+  click: () => void;
+}
 
-const BtnModal: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const Button: React.FC<ButtonProps> = ({ title, click }) => {
   return (
     <div>
       <button
         className="bg-[#21d17d] text-white font-medium py-2 px-4 border rounded-lg shadow text-sm"
-        type="button"
-        onClick={() => setIsOpen(true)}
+        onClick={click}
       >
-        + Novo agendamento
+        {title}
       </button>
     </div>
   );
 };
 
-export default BtnModal;
+export default Button;
