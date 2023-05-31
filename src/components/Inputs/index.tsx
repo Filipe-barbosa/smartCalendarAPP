@@ -1,20 +1,26 @@
+import React from 'react';
 type TextInputProps = {
   title: string;
   placeholder: string;
 };
 
-export const TextInput: React.FC<TextInputProps> = ({ title, placeholder }) => {
-  return (
-    <div className="grid w-auto">
-      <p className="font-light">{title}</p>
-      <input
-        placeholder={placeholder}
-        className="p-1.5 rounded-md border-gray-400 border"
-      />
-    </div>
-  );
-};
+export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
+  ({ title, placeholder, ...rest }, ref) => {
+    return (
+      <div className="grid w-auto">
+        <p className="font-light">{title}</p>
+        <input
+          ref={ref}
+          placeholder={placeholder}
+          className="p-1.5 rounded-md border-gray-400 border"
+          {...rest}
+        />
+      </div>
+    );
+  }
+);
 
+TextInput.displayName = 'TextInput';
 type TimeInputProps = {
   title: string;
 };

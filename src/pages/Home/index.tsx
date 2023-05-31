@@ -4,9 +4,11 @@ import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { Table } from '../../components/Table';
 import { ModalForm } from './components/ModalForm';
 import { Modal } from '../../components/Modal';
+import { InputForm } from '../../types/InputForm';
 
 export const HomePage: React.FC = () => {
   const [openModal, setOpenModal] = useState(false);
+  const [formValues, setFormValues] = useState<InputForm[]>([]);
   const [teste, setTeste] = useLocalStorage('teste2', [
     {
       name: 'teste1',
@@ -21,11 +23,14 @@ export const HomePage: React.FC = () => {
       time: '16:30',
     },
   ]);
-
+  const handleFormSubmit = (data: InputForm) => {
+    setFormValues([...formValues, data]);
+    setOpenModal(false);
+  };
   return (
     <>
       <Header openModal={() => setOpenModal(!openModal)} />
-      <Table data={teste} />
+      <Table data={[...teste, ...formValues]} />
       {openModal && (
         <Modal onClose={() => setOpenModal(false)}>
           <ModalForm onClose={() => setOpenModal(false)} />

@@ -1,6 +1,8 @@
 import DateInput from '../../../../components/DateInput';
 import { TextInput } from '../../../../components/Inputs';
 import Button from '../../../../components/Buttons';
+import { useForm } from 'react-hook-form';
+import { useLocalStorage } from '../../../../hooks/useLocalStorage';
 
 
 type ModalFormProps = {
@@ -8,6 +10,25 @@ type ModalFormProps = {
 }
 
 export const ModalForm: React.FC<ModalFormProps> = ({onClose}) => {
+  const { register, handleSubmit, setValue } = useForm();
+  const [formValues, setFormValues] = useLocalStorage('formValues', []);
+
+  const onSubmit = (data: any) => {
+    const formData = {
+      nome: data.nome,
+      phone: data.phone,
+
+    };
+
+    const updatedFormValues = [...formValues, formData];
+    setFormValues(updatedFormValues);
+
+    setValue('nome', '');
+    setValue('phone', '');
+
+    onClose();
+
+  };
   return (
     <div className="container mx-auto px-16">
       <div className=" flex flex-col justify-center items-start	p-0 gap-2 isolate">
@@ -27,6 +48,7 @@ export const ModalForm: React.FC<ModalFormProps> = ({onClose}) => {
             <TextInput
               title={'Nome'}
               placeholder={'Informe o nome do paciente'}
+              {...register('nome')}
             />
             <TextInput
               title={'Sobrenome'}
@@ -37,6 +59,7 @@ export const ModalForm: React.FC<ModalFormProps> = ({onClose}) => {
             <TextInput
               title={'Telefone'}
               placeholder={'Informe o telefone'}
+              {...register('phone')}
             />
             <TextInput
               title={'CPF'}
@@ -54,6 +77,7 @@ export const ModalForm: React.FC<ModalFormProps> = ({onClose}) => {
             <div>
               <p className="font-ligth">Data do exame</p>
               <DateInput />
+
             </div>
 
             <TextInput
@@ -81,7 +105,7 @@ export const ModalForm: React.FC<ModalFormProps> = ({onClose}) => {
         </div>
       </div>
       <div className='flex justify-end'>
-        <Button click={onClose} title='Agendar'/>
+        <Button click={handleSubmit(onSubmit)} title='Agendar'/>
       </div>
     </div>
   );
