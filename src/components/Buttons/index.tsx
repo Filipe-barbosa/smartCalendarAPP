@@ -6,13 +6,13 @@ const BtnModal: React.FC = () => {
   return (
     <div>
       <button
-        className="bg-white hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-        type='button'
-        onClick={ () => setIsOpen(true)}
+        className="bg-[#21d17d] text-white font-medium py-2 px-4 border rounded-lg shadow text-sm"
+        type="button"
+        onClick={() => setIsOpen(true)}
       >
         + Novo agendamento
       </button>
-      { isOpen ? <ModalForm onClose={() => setIsOpen(false)}/> : null }
+      {isOpen ? <ModalForm onClose={() => setIsOpen(false)} /> : null}
     </div>
   );
 };

@@ -1,8 +1,9 @@
 import { TableRow } from './TableRow';
 import { TableColumn } from './TableColumn';
+import { InputForm } from '../../types/InputForm';
 
 type TableProps = {
-  data: { [key: string]: string | number }[];
+  data: InputForm[];
 };
 
 export const Table = ({ data }: TableProps) => {
