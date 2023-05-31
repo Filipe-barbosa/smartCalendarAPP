@@ -1,5 +1,5 @@
+import BtnModal from '../../../../components/Buttons';
 import { SubTitle, Title } from '../../../../components/Text';
-import BtnModal from '../../../../components/modal/BtnModal';
 
 export const Header: React.FC = () => {
   return (

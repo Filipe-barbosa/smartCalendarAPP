@@ -1,5 +1,4 @@
-import React, { useState} from 'react';
-import ModalForm from '../Modal/index';
+import React, { useState } from 'react';
 
 const BtnModal: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +11,6 @@ const BtnModal: React.FC = () => {
       >
         + Novo agendamento
       </button>
-      {isOpen ? <ModalForm onClose={() => setIsOpen(false)} /> : null}
     </div>
   );
 };

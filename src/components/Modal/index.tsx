@@ -1,26 +1,18 @@
+import { ModalForm } from '../../pages/Home/componets/ModalForm';
+
 type ModalForm = {
   onClose: (open: boolean) => void;
+  children: React.ReactNode;
 };
 
-const  ModalForm: React.FC<ModalForm> = ({ onClose }) => {
+export const Modal: React.FC<ModalForm> = ({ children }) => {
   return (
     <div className="fixed z-50 inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
       <div className=" px-10 py-10 bg-white rounded-xl">
         <div className="flex justify-between items-center">
-          <h2>Formulario de inscrição</h2>
-          <button
-            className="text-xl leading-none focus:outline-none text-gray-500"
-            onClick={() => onClose(false)}
-          >
-            ×
-          </button>
-        </div>
-        <div>
-          dados do formulario podem ser inseridos aqui
+          {children}
         </div>
       </div>
     </div>
   );
 };
-
-export default ModalForm;
