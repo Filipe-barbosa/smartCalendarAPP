@@ -8,35 +8,24 @@ import { InputForm } from '../../types/InputForm';
 
 export const HomePage: React.FC = () => {
   const [openModal, setOpenModal] = useState(false);
-  const [formValues, setFormValues] = useState<InputForm[]>([]);
-  const [teste, setTeste] = useLocalStorage('teste2', [
-    {
-      name: 'teste1',
-      phone: '3333333',
-      appointmentDate: '20/05/2023',
-      time: '15:30',
-    },
-    {
-      name: 'teste2',
-      phone: '44444444',
-      appointmentDate: '21/05/2023',
-      time: '16:30',
-    },
-  ]);
+  const [formValues, setFormValues] = useLocalStorage('formValues', []);
+
   const handleFormSubmit = (data: InputForm) => {
+    console.log(formValues);
     setFormValues([...formValues, data]);
     setOpenModal(false);
   };
+  console.log(formValues);
   return (
     <>
       <Header openModal={() => setOpenModal(!openModal)} />
-      <Table data={[...teste, ...formValues]} />
+      <Table data={[...formValues]} />
+
       {openModal && (
         <Modal onClose={() => setOpenModal(false)}>
-          <ModalForm onClose={() => setOpenModal(false)} />
+          <ModalForm handleFormSubmit={handleFormSubmit} />
         </Modal>
-      )
-      }
+      )}
     </>
   );
 };

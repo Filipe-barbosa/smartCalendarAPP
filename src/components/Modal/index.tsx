@@ -1,6 +1,6 @@
 type ModalForm = {
   children: React.ReactNode;
-  onClose: () => void,
+  onClose: () => void;
 };
 
 export const Modal: React.FC<ModalForm> = ({ children, onClose }) => {
@@ -12,11 +12,10 @@ export const Modal: React.FC<ModalForm> = ({ children, onClose }) => {
           className="absolute top-0 right-0 m-4 text-gray-600 hover:text-gray-900 transition-colors"
           onClick={onClose}
         >
-        X
+          X
         </button>
         <div className="p-10">{children}</div>
       </div>
     </div>
-
   );
 };

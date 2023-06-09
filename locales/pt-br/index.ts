@@ -6,9 +6,14 @@ export default {
     },
     scheduledTable: {
       name: 'Nome',
+      lastName: 'Sobrenome',
+      cpf: 'CPF',
       phone: 'Telefone',
-      appointmentDate: 'Data de agendamento',
-      time: 'Hora',
+      examDate: 'Data de exame',
+      examTime: 'Hora',
+      returnDate: 'Data do retorno',
+      returnTime: 'Hora do retorno',
+      schedulingProfessional: 'Responsável pelo agendamento',
     },
   },
 };
