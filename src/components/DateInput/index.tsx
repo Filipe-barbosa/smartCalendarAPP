@@ -1,20 +1,24 @@
-import React, { useContext } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { DataContext } from '../../context/DataContext';
+import { Noop } from 'react-hook-form';
 
-function DateInput() {
-  const { data, setData } = useContext(DataContext);
+type DateInputProps = {
+  onChange: () => void;
+  onBlur: Noop;
+  value: Date | null | undefined;
+};
 
-  function handleDateChange(date: Date) {
-    setData(date);
-  }
-
+function DateInput({ onChange, onBlur, value }: DateInputProps) {
   return (
     <div className="w-full inline-flex border rounded-md shadow-sm">
-      <DatePicker className="form-input w-full px-3 py-2 leading-5 text-gray-700" selected={data} onChange={handleDateChange} />
+      <DatePicker
+        onChange={onChange}
+        onBlur={onBlur}
+        selected={value}
+        className="form-input w-full px-3 py-2 leading-5 text-gray-700"
+        dateFormat="dd/MM/yyyy"
+      />
     </div>
-
   );
 }
 
