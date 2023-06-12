@@ -1,7 +1,7 @@
 {
   "name": "smartcalendarapp",
   "private": true,
-  "homepage": "https://filipe-barbosa.github.io/smartCalendarAPP/",
+  "homepage": "https://filipe-barbosa.github.io/smartCalendarAPP",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
