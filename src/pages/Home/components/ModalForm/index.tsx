@@ -4,6 +4,7 @@ import Button from '../../../../components/Buttons';
 import { Controller, useForm } from 'react-hook-form';
 import { InputForm } from '../../../../types/InputForm';
 import moment from 'moment';
+import { useTranslation } from 'react-i18next';
 
 type ModalFormProps = {
   handleFormSubmit: (data: InputForm) => void;
@@ -11,6 +12,7 @@ type ModalFormProps = {
 
 export const ModalForm: React.FC<ModalFormProps> = ({ handleFormSubmit }) => {
   const { register, handleSubmit, control } = useForm<InputForm>();
+  const { t } = useTranslation();
 
   const onSubmit = (data: InputForm) => {
     const formData: InputForm = {
@@ -29,42 +31,42 @@ export const ModalForm: React.FC<ModalFormProps> = ({ handleFormSubmit }) => {
   };
   return (
     <form
-      className="container mx-auto px-16"
+      className="container mx-auto px-8"
       onSubmit={() => onSubmit}
     >
-      <div className=" flex flex-col justify-center items-start	p-0 gap-2 isolate">
-        <h1 className="text-[28px]  leading-[34px] font-medium pt-8">
-          Novo agendamento
+      <div className=" flex flex-col justify-center items-start	gap-2 isolate">
+        <h1 className="text-3xl leading-8 font-medium pt-8">
+          {t('modalFormHome.title')}
         </h1>
-        <p className="text-[#00000099] text-[16px] leading-[19px]">
-          Realize o agendamento de um novo exame
+        <p className="text-[#00000099] leading-5">
+          {t('modalFormHome.subtitle')}
         </p>
       </div>
       <div>
-        <h3 className="text-[16px] text-[#000000D9] font-bold leading-[19px] pt-4 pb-4">
-          Dados do paciente
+        <h3 className="text-[16px] text-[#000000D9] font-bold leading-5 pt-4 pb-4">
+          {t('modalFormHome.patientData')}
         </h3>
         <div className=" flex flex-col items-start p-0 gap-4">
           <div className="flex flex-row items-start p-0 gap-4">
             <TextInput
-              title={'Nome'}
+              title={'modalFormHome.inputName'}
               placeholder={'Informe o nome do paciente'}
               {...register('name')}
             />
             <TextInput
-              title={'Sobrenome'}
+              title={'modalFormHome.inputLastName'}
               placeholder={'Informe o sobrenome do paciente'}
               {...register('lastName')}
             />
           </div>
           <div className="flex flex-row items-start p-0 gap-4">
             <TextInput
-              title={'Telefone'}
+              title={'modalFormHome.inputPhone'}
               placeholder={'Informe o telefone'}
               {...register('phone')}
             />
             <TextInput
-              title={'CPF'}
+              title={'modalFormHome.inputCPF'}
               placeholder={'000.000.000-00'}
               {...register('cpf')}
             />
@@ -72,13 +74,13 @@ export const ModalForm: React.FC<ModalFormProps> = ({ handleFormSubmit }) => {
         </div>
       </div>
       <div>
-        <h3 className="text-[16px] text-[#000000D9] font-bold leading-[19px] pt-8  pb-4 ">
+        <h3 className="text-[16px] text-[#000000D9] font-bold leading-5 pt-8  pb-4 ">
           Dados do exame
         </h3>
         <div className=" flex flex-col items-start p-0 gap-4">
           <div className="flex flex-row items-start p-0 gap-4 justify-center">
             <div>
-              <p className="font-ligth">Data do exame</p>
+              <p className="font-light">Data do exame</p>
               <Controller
                 control={control}
                 name="examDate"
@@ -93,7 +95,7 @@ export const ModalForm: React.FC<ModalFormProps> = ({ handleFormSubmit }) => {
             </div>
 
             <TextInput
-              title={'Hora'}
+              title={'modalFormHome.inputExamTime'}
               placeholder={'Informe a hora'}
               {...register('examTime')}
             />
@@ -114,14 +116,14 @@ export const ModalForm: React.FC<ModalFormProps> = ({ handleFormSubmit }) => {
               />
             </div>
             <TextInput
-              title={'Hora'}
+              title={'modalFormHome.inputReturnTime'}
               placeholder={'Informe a hora'}
               {...register('returnTime')}
             />
           </div>
           <div className="flex flex-row items-start p-0 gap-4">
             <TextInput
-              title={'Responsável pelo agendamento'}
+              title={'modalFormHome.inputSchedulingProfessional'}
               placeholder={'Informe o respondavel pelo agendamento'}
               {...register('schedulingProfessional')}
             />

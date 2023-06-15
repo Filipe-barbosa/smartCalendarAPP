@@ -11,11 +11,9 @@ export const HomePage: React.FC = () => {
   const [formValues, setFormValues] = useLocalStorage('formValues', []);
 
   const handleFormSubmit = (data: InputForm) => {
-    console.log(formValues);
     setFormValues([...formValues, data]);
     setOpenModal(false);
   };
-  console.log(formValues);
   return (
     <>
       <Header openModal={() => setOpenModal(!openModal)} />
