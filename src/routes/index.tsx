@@ -5,12 +5,12 @@ export const AppRoutes = () => {
   return (
     <Routes>
       <Route
-        path="/home"
+        path="/smartCalendarAPP"
         element={<HomePage />}
       />
       <Route
         path="*"
-        element={<Navigate to="/home" />}
+        element={<Navigate to="/smartCalendarAPP" />}
       />
     </Routes>
   );
